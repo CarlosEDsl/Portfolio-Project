@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { ProjectsService } from '../../shared/services/projects.service'
+import { Project } from '../../shared/interfaces/projecttInterface';
 
 @Component({
   selector: 'app-list',
@@ -9,13 +11,13 @@ import { Component, inject } from '@angular/core';
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
-  projects: any[] = [];
+  projects: Project[] = [];
 
-  httpClient = inject(HttpClient);
+  httpClient = inject(ProjectsService);
 
   ngOnInit() {
 
-    this.httpClient.get<any>('/api/projects').subscribe((projects) => {
+    this.httpClient.getAll().subscribe((projects) => {
       this.projects = projects;
     })
   }
