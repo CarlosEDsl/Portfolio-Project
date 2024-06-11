@@ -1,1 +1,9 @@
 <p>list works!</p>
+
+<ul>
+  @for (project of projects; track project.id) {
+    <li>
+      {{ project.id }}
+    </li>
+  }
+</ul>
