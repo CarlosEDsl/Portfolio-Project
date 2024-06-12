@@ -1,3 +1,7 @@
+<div class="action-container">
+  <a mat-flat-button color="Accent" [routerLink]="['input/project']">Adicionar Projeto</a>
+</div>
+
 @for (project of projects; track project.id) {
   <app-card [project]="project"></app-card>
 }
