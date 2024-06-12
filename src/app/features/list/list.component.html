@@ -1,9 +1,16 @@
-<p>list works!</p>
+@for (project of projects; track project.id) {
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{project.title}}</mat-card-title>
+      <mat-card-subtitle>{{project.shortDesc}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{project.img}}" alt="Project img">
+    <mat-card-content>
+      <p>
+        {{project.description}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+}
 
-<ul>
-  @for (project of projects; track project.id) {
-    <li>
-      {{ project.id }}
-    </li>
-  }
-</ul>

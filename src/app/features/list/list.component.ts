@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { ProjectsService } from '../../shared/services/projects.service'
 import { Project } from '../../shared/interfaces/projecttInterface';
+import { MatCardModule } from '@angular/material/card'
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [],
+  imports: [MatCardModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
