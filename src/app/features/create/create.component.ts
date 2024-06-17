@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProjectsService } from '../../shared/services/projects.service';
-import { MatSnackBar } from '@angular/material/snack-bar'
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar'
 import { Router } from '@angular/router';
 
 @Component({
@@ -54,11 +54,7 @@ export class CreateComponent {
     .subscribe(() => {
       alert("Success");
     });
-    this.matSnackBar.open("Cadastrado com sucesso", "", {
-      duration:3000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
+    this.matSnackBar.open("Cadastrado com sucesso", "") as MatSnackBarConfig;
     this.router.navigateByUrl("/").catch(() => console.log("Erro na rota"));
   }
 
