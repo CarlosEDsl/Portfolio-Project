@@ -7,6 +7,14 @@
       "description": "The Task Management API is designed to provide robust functionality for managing task lists for multiple users. It offers a comprehensive set of endpoints that allow users to create, read, update, and delete tasks efficiently. This API is ideal for developers looking to integrate task management capabilities into their applications, enabling features such as personal to-do lists, and in the future team project management, and collaborative task tracking",
       "url": "https://github.com/CarlosEDsl/todolist-api",
       "img": "https://cdn.pixabay.com/photo/2019/02/28/17/31/tasks-4026398_1280.jpg"
+    },
+    {
+      "id": "1f6d",
+      "title": "BreadStockManagement",
+      "shortDesc": "Trabalho de faculdade envolvendo uma padaria",
+      "description": "Um controlador de estoque feito como projeto de faculdade, com a temática de uma padaria",
+      "url": "https://github.com/CarlosEDsl/BreadStockManagement",
+      "img": "https://img.freepik.com/fotos-gratis/conjunto-de-varios-paes-na-superficie-da-pedra_114579-40612.jpg"
     }
   ]
 }

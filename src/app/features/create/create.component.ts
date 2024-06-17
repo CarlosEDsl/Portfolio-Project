@@ -4,7 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProjectsService } from '../../shared/services/projects.service';
-import { fromEventPattern } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -16,6 +17,8 @@ import { fromEventPattern } from 'rxjs';
 
 export class CreateComponent {
 
+  matSnackBar = inject(MatSnackBar)
+  router = inject(Router);
   projectsService = inject(ProjectsService);
 
   form = new FormGroup({
@@ -51,7 +54,12 @@ export class CreateComponent {
     .subscribe(() => {
       alert("Success");
     });
-
+    this.matSnackBar.open("Cadastrado com sucesso", "", {
+      duration:3000,
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    });
+    this.router.navigateByUrl("/").catch(() => console.log("Erro na rota"));
   }
 
 }
