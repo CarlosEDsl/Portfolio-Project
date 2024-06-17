@@ -1,9 +1,9 @@
 {
-  "projects":  [
+  "projects": [
     {
       "id": "1",
       "title": "To do simple list",
-      "shortDesc":"A simple project using REST API in Spring boot",
+      "shortDesc": "A simple project using REST API in Spring boot",
       "description": "The Task Management API is designed to provide robust functionality for managing task lists for multiple users. It offers a comprehensive set of endpoints that allow users to create, read, update, and delete tasks efficiently. This API is ideal for developers looking to integrate task management capabilities into their applications, enabling features such as personal to-do lists, and in the future team project management, and collaborative task tracking",
       "url": "https://github.com/CarlosEDsl/todolist-api",
       "img": "https://cdn.pixabay.com/photo/2019/02/28/17/31/tasks-4026398_1280.jpg"
