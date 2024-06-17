@@ -8,5 +8,14 @@ export const routes: Routes = [
 },
 {
   path: 'input-project',
-  loadComponent: () => import('./features/create/create.component').then(m => m.CreateComponent),
-}];
+  loadComponent: () => 
+    import('./features/create/create.component')
+  .then(m => m.CreateComponent)
+},
+{
+  path:'edit-project',
+  loadChildren: () => 
+    import('./features/edit/edit.component')
+  .then(m => m.EditComponent)
+}
+];
