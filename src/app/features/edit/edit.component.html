@@ -1,1 +1,27 @@
-<p>edit works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-cont-cont">
+    <div class="form-cont">
+      <div class="form-data">
+        <mat-form-field>
+          <mat-label>Titulo</mat-label>
+          <input type="text" matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Resumo</mat-label>
+          <input type="text" matInput formControlName="shortDesc">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Descrição</mat-label>
+          <input type="text" matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Repositório</mat-label>
+          <input type="text" matInput formControlName="url">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Link da Imagem</mat-label>
+          <input type="text" matInput formControlName="img">
+        </mat-form-field>
+    </div>
+    <button type="submit" mat-raised-button color="accent">Save</button>
+  </div>
+</form>

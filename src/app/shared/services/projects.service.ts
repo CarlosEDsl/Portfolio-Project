@@ -16,7 +16,16 @@ export class ProjectsService {
     return this.httpClient.get<Project[]>('/api/projects')
   }
 
+  get(id:string) {
+    return this.httpClient.get<Project>(`/api/projects/${id}`)
+  }
+
   post(payload:ProductPayload) {
     return this.httpClient.post('/api/projects', payload);
   }
+
+  put(project:Project) {
+    return this.httpClient.put(`/api/projects/${project.id}`, project);
+  }
+
 }

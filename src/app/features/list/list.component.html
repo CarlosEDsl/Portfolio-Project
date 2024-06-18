@@ -3,6 +3,6 @@
 </div>
 
 @for (project of projects; track project.id) {
-  <app-card [project]="project" (edit)="onEdit()"></app-card>
+  <app-card [project]="project" (edit)="onEdit(project)"></app-card>
 }
 

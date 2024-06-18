@@ -26,8 +26,8 @@ export class ListComponent {
     })
   }
 
-  onEdit() {
-    this.router.navigateByUrl("./edit-project")
+  onEdit(project: Project) {
+    this.router.navigate(['/edit-project', project.id])
   }
 
 }
