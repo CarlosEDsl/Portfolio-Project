@@ -15,6 +15,7 @@ export class CardComponent {
   project = input.required<Project>();
 
   @Output() edit = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
   projectTitle = computed(() => this.project().title);
   projectShortDesc = computed(() => this.project().shortDesc);
@@ -24,6 +25,10 @@ export class CardComponent {
 
   onEdit() {
     this.edit.emit();
+  }
+
+  onDelete() {
+    this.delete.emit();
   }
 
 }
