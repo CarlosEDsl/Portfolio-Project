@@ -6,6 +6,12 @@ import { ProjectsService } from './shared/services/projects.service';
 export const routes: Routes = [
   {
   path: '',
+  resolve: {
+    projects: () => {
+        const httpClient = inject(ProjectsService)
+        return httpClient.getAll()
+    }
+  },
   component: ListComponent
 },
 {
