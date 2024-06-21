@@ -5,35 +5,9 @@ import { Project } from '../../shared/interfaces/projecttInterface';
 import { CardComponent } from './components/card/card.component'
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
-import { MatDialog, MatDialogModule } from '@angular/material/dialog'
-import { MatDialogRef } from '@angular/material/dialog'
+import { MatDialog } from '@angular/material/dialog'
 import { filter } from 'rxjs';
-
-@Component({
-  selector: 'app-delete-confirmation-dialog',
-  template: `
-  <h2 mat-dialog-title>Deleção de projeto</h2>
-  <mat-dialog-content>
-    Você deseja apagar este projeto?
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button mat-dialog-close cdkFocusInitial color="accent" (click)="onYes()">Sim</button>
-    <button mat-button mat-dialog-close (click)="onNo()">Não</button>
-  </mat-dialog-actions>`,
-  standalone: true,
-  imports: [MatButtonModule, MatDialogModule],
-})
-export class ConfirmationDialogComponent {
-  matDialogRef = inject(MatDialogRef)
-  onNo() {
-    this.matDialogRef.close(false);
-  }
-  onYes() {
-    this.matDialogRef.close(true);
-  }
-}
-
-
+import { ConfirmationDialogService } from '../../shared/services/confirmation-dialog.service';
 
 @Component({
   selector: 'app-list',
@@ -48,6 +22,7 @@ export class ListComponent {
   httpClient = inject(ProjectsService);
   router = inject(Router);
   matDialog = inject(MatDialog)
+  confirmationService = inject (ConfirmationDialogService)
 
   ngOnInit() {
 
@@ -61,10 +36,8 @@ export class ListComponent {
   }
 
   onDelete(project: Project) {
-    this.matDialog
-      .open(ConfirmationDialogComponent)
-      .afterClosed()
-      .pipe(filter((answ:boolean) => answ === true))
+    this.confirmationService.openDialog()
+      .pipe(filter((ans) => ans === true))
       .subscribe(() => {
           this.httpClient.delete(project.id).subscribe(() => {
             this.ngOnInit();
