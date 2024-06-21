@@ -1,28 +1,3 @@
 {
-  "projects": [
-    {
-      "id": "1",
-      "title": "a",
-      "shortDesc": "a",
-      "description": "a",
-      "url": "a",
-      "img": "a"
-    },
-    {
-      "id": "1f6d",
-      "title": "BreadStockManagement",
-      "shortDesc": "Trabalho de faculdade envolvendo uma padaria",
-      "description": "Um controlador de estoque feito como projeto de faculdade, com a temática de uma padaria",
-      "url": "https://github.com/CarlosEDsl/BreadStockManagement",
-      "img": "https://img.freepik.com/fotos-gratis/conjunto-de-varios-paes-na-superficie-da-pedra_114579-40612.jpg"
-    },
-    {
-      "id": "0cb2",
-      "title": "a",
-      "shortDesc": "a",
-      "description": "a",
-      "url": "a",
-      "img": "a"
-    }
-  ]
+  "projects": []
 }

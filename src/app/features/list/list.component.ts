@@ -6,7 +6,8 @@ import { CardComponent } from './components/card/card.component'
 import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button'
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'
-import { ChangeDetectionStrategy } from '@angular/compiler';
+import { MatDialogRef } from '@angular/material/dialog'
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-delete-confirmation-dialog',
@@ -16,13 +17,21 @@ import { ChangeDetectionStrategy } from '@angular/compiler';
     Você deseja apagar este projeto?
   </mat-dialog-content>
   <mat-dialog-actions>
-    <button mat-button mat-dialog-close cdkFocusInitial>Sim</button>
-    <button mat-button mat-dialog-close>Não</button>
+    <button mat-button mat-dialog-close cdkFocusInitial color="accent" (click)="onYes()">Sim</button>
+    <button mat-button mat-dialog-close (click)="onNo()">Não</button>
   </mat-dialog-actions>`,
   standalone: true,
   imports: [MatButtonModule, MatDialogModule],
 })
-export class ConfirmationDialogComponent {}
+export class ConfirmationDialogComponent {
+  matDialogRef = inject(MatDialogRef)
+  onNo() {
+    this.matDialogRef.close(false);
+  }
+  onYes() {
+    this.matDialogRef.close(true);
+  }
+}
 
 
 
@@ -52,11 +61,15 @@ export class ListComponent {
   }
 
   onDelete(project: Project) {
-    this.matDialog.open(ConfirmationDialogComponent)
+    this.matDialog
+      .open(ConfirmationDialogComponent)
       .afterClosed()
-      .subscribe((data) => {
-        console.log('afterClosed' + data);
-      })
-  }
+      .pipe(filter((answ:boolean) => answ === true))
+      .subscribe(() => {
+          this.httpClient.delete(project.id).subscribe(() => {
+            this.ngOnInit();
+          });
+      });
+  };
 
 }

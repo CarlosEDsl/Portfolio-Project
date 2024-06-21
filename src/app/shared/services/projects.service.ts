@@ -27,5 +27,8 @@ export class ProjectsService {
   put(project:Project) {
     return this.httpClient.put(`/api/projects/${project.id}`, project);
   }
+  delete(id:string) {
+    return this.httpClient.delete(`/api/projects/${id}`)
+  }
 
 }
