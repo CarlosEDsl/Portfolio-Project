@@ -1,16 +1,13 @@
-import { ActivatedRouteSnapshot, RouterStateSnapshot, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ListComponent } from './features/list/list.component'
-import { inject } from '@angular/core';
-import { ProjectsService } from './shared/services/projects.service';
+import { getProjects } from './shared/components/resolvers/get-projects.resolver';
+import { getProject } from './shared/components/resolvers/get-project.resolver';
 
 export const routes: Routes = [
   {
   path: '',
   resolve: {
-    projects: () => {
-        const httpClient = inject(ProjectsService)
-        return httpClient.getAll()
-    }
+    projects: getProjects
   },
   component: ListComponent
 },
@@ -23,10 +20,7 @@ export const routes: Routes = [
 {
   path:'edit-project/:id',
   resolve : {
-    project: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-      const projectService = inject(ProjectsService);
-      return projectService.get(route.paramMap.get('id') as string);
-    }
+    project: getProject
   },
   loadComponent: () => 
     import('./features/edit/edit.component')
