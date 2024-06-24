@@ -5,4 +5,9 @@
 @for (project of projects(); track project.id) {
   <app-card [project]="project" (edit)="onEdit(project)" (delete)="onDelete(project)"></app-card>
 }
+@empty {
+  <app-no-items></app-no-items>
+}
+
+
 

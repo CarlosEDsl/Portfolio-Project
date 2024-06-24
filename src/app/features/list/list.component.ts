@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { ProjectsService } from '../../shared/services/projects.service'
 import { Project } from '../../shared/interfaces/projecttInterface';
@@ -8,11 +7,12 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatDialog } from '@angular/material/dialog'
 import { filter } from 'rxjs';
 import { ConfirmationDialogService } from '../../shared/services/confirmation-dialog.service';
+import { NoItemsComponent } from './components/no-items/no-items.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CardComponent, RouterLink, MatButtonModule],
+  imports: [CardComponent, RouterLink, MatButtonModule, NoItemsComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
