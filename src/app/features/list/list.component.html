@@ -3,10 +3,15 @@
 </div>
 
 @for (project of projects(); track project.id) {
-  <app-card [project]="project" (edit)="onEdit(project)" (delete)="onDelete(project)"></app-card>
+  @defer (on immediate) {
+    <app-card [project]="project" (edit)="onEdit(project)" (delete)="onDelete(project)"></app-card>
+  }
+  
 }
 @empty {
-  <app-no-items></app-no-items>
+  @defer (on immediate) {
+    <app-no-items></app-no-items>
+  }
 }
 
 
